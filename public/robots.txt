@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: http://www.cdmxeneltiempo.com/sitemap.xml
+Disallow: /tmp
+Disallow: /admin
