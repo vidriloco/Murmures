@@ -1,0 +1,30 @@
+<% unless @testimonials.empty? %>
+  <div id="carouselExampleIndicators" class="carousel slide pr-5 pl-5" data-ride="carousel" style="pointer-events: auto;">
+    <div class="carousel-inner">
+      <% @testimonials.each_with_index do |testimonial, index| %>
+        <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+          <%= render partial: 'testimonials/item', locals: { testimonial: testimonial } %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+<% else %>
+  <div class="pr-5 pl-5">
+    <div class="shadow bg-white rounded p-2 mt-1 mr-4 mb-1 ml-4">
+      <div class="testimonials">
+        <div class="card text-center">
+          <h4>Nothing to see here</h4>
+          <p>There are no testimonials to show here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -36,12 +36,14 @@ ActiveRecord::Schema.define(version: 20161120133111) do
   end
 
   create_table "testimonials", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
+    t.string   "bio"
     t.string   "age"
     t.string   "gender"
     t.string   "sexual_orientation"
     t.string   "religion"
     t.string   "audio_url"
+    t.string   "image_url"
     t.point    "location"
     t.date     "published_date"
     t.text     "transcript"

@@ -1,1 +1,18 @@
 <%= render 'shared/map/full' %>
+
+<div class="position-fixed fixed-top" style="pointer-events: none;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-sm-8"></div>
+      <div class="col-md-4 col-sm-4">
+        <div class="pr-5 pl-5">
+          <div class="shadow p-3 bg-white rounded mt-4 mr-4 ml-4 mb-3 text-center">
+            <h3>Murmures</h3>
+          </div>
+        </div>
+        
+        <%= render 'testimonials/list' %>
+      </div>
+    </div>
+  </div>
+</div>
