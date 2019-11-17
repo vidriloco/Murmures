@@ -9,6 +9,8 @@
 	
   <%= csrf_meta_tags %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+  
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 </head>
@@ -16,9 +18,8 @@
 <body>
   <%= yield %>
   
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
   <%= javascript_include_tag 'application' %>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9lNNwKeP3BMJ3iM6uFlPaLWl6ZHlpH9k&callback=initMap"
-      async defer></script>
   
 </body>
 </html>
