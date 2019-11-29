@@ -10,7 +10,7 @@ class CreateTestimonials < ActiveRecord::Migration[5.0]
       t.string        :audio_url
       t.string        :image_url
       
-      t.point         :location, geographic: true
+      t.st_point      :location, geographic: true
       t.date          :published_date
       t.text          :transcript
       t.integer       :user_id

@@ -30,6 +30,16 @@ class Testimonial < ApplicationRecord
     !user.nil?
   end
   
+  def lat
+    return 0.0 if location.nil?
+    location.lat
+  end
+  
+  def lon
+    return 0.0 if location.nil?
+    location.lon
+  end
+  
   module Gender
     
     MALE = "male"

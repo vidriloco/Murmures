@@ -36,22 +36,22 @@ ActiveRecord::Schema.define(version: 20161120133111) do
   end
 
   create_table "testimonials", force: :cascade do |t|
-    t.string   "title"
-    t.string   "bio"
-    t.string   "age"
-    t.string   "gender"
-    t.string   "sexual_orientation"
-    t.string   "religion"
-    t.string   "audio_url"
-    t.string   "image_url"
-    t.point    "location"
-    t.date     "published_date"
-    t.text     "transcript"
-    t.integer  "user_id"
-    t.boolean  "published"
-    t.text     "list_of_tags"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string    "title"
+    t.string    "bio"
+    t.string    "age"
+    t.string    "gender"
+    t.string    "sexual_orientation"
+    t.string    "religion"
+    t.string    "audio_url"
+    t.string    "image_url"
+    t.geography "location",           limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.date      "published_date"
+    t.text      "transcript"
+    t.integer   "user_id"
+    t.boolean   "published"
+    t.text      "list_of_tags"
+    t.datetime  "created_at",                                                                     null: false
+    t.datetime  "updated_at",                                                                     null: false
   end
 
   create_table "users", force: :cascade do |t|

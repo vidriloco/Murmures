@@ -21,3 +21,45 @@ var map = new mapboxgl.Map({
   center: [-77.38, 39], // starting position
   zoom: 3 // starting zoom
 });
+
+if($("#testimonial-list").length > 0) {
+  var testimonialCoordinates = $(".coordinates");
+  
+  let bounds = [];
+  let features = $.map(testimonialCoordinates, function(item) {
+    var lat = $(item).data("lat");
+    var lon = $(item).data("lng");
+    var id = $(item).data("id");
+    
+    bounds.push([lat, lon]);
+    
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [lat, lon]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'San Francisco, California'
+      }
+    }
+  });
+    
+  // add markers to map
+  features.forEach(function(marker) {
+
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+  });
+  
+  map.fitBounds(bounds, {padding: 40 });
+}
+
+
