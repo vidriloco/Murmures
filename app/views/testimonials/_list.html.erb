@@ -1,9 +1,9 @@
 <% unless @testimonials.empty? %>
-  <div id="carouselExampleIndicators" class="carousel slide pr-5 pl-5" data-ride="carousel" style="pointer-events: auto;">
+  <div id="testimonials-carousel" class="carousel slide pr-5 pl-5" data-ride="carousel" style="pointer-events: auto;">
     <div class="carousel-inner">
       <% @testimonials.each_with_index do |testimonial, index| %>
         <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-          <%= render partial: 'testimonials/item', locals: { testimonial: testimonial } %>
+          <%= render partial: 'testimonials/item', locals: { testimonial: testimonial, index: index } %>
         </div>
       <% end %>
     </div>

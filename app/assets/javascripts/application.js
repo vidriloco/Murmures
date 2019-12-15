@@ -13,53 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require social-share-button
-
-mapboxgl.accessToken = 'pk.eyJ1Ijoidmlkcmlsb2NvIiwiYSI6ImNrMzFzYjFwbDBiZWUzZXBnaGlkMGloZHIifQ.pjMvF92qc7BlLy-6tbu62g';
-var map = new mapboxgl.Map({
-  container: 'map', // container id
-  style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
-  center: [-77.38, 39], // starting position
-  zoom: 3 // starting zoom
+//= require testimonial_panel
+//= require base_map
+  
+let apiKey = 'pk.eyJ1Ijoidmlkcmlsb2NvIiwiYSI6ImNrMzFzYjFwbDBiZWUzZXBnaGlkMGloZHIifQ.pjMvF92qc7BlLy-6tbu62g';
+let map = new BaseMap(apiKey, 'map', {
+  style: 'mapbox://styles/mapbox/dark-v10',
+  initialZoom: 3,
+  initialCoordinates: [-77.38, 39]
 });
 
+let testimonial = new TestimonialPanel('#testimonials-carousel');
+
 if($("#testimonial-list").length > 0) {
-  var testimonialCoordinates = $(".coordinates");
-  
-  let bounds = [];
-  let features = $.map(testimonialCoordinates, function(item) {
-    var lat = $(item).data("lat");
-    var lon = $(item).data("lng");
-    var id = $(item).data("id");
-    
-    bounds.push([lat, lon]);
-    
-    return {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [lat, lon]
-      },
-      properties: {
-        title: 'Mapbox',
-        description: 'San Francisco, California'
-      }
-    }
+  map.start();
+  map.loadMarkersAt(".coordinates", (index) => { 
+    testimonial.focusOnMarkerWithIndex(index);
   });
-    
-  // add markers to map
-  features.forEach(function(marker) {
-
-    // create a HTML element for each feature
-    var el = document.createElement('div');
-    el.className = 'marker';
-
-    // make a marker for each feature and add to the map
-    new mapboxgl.Marker(el)
-      .setLngLat(marker.geometry.coordinates)
-      .addTo(map);
-  });
-  
-  map.fitBounds(bounds, {padding: 40 });
 }
-
 
