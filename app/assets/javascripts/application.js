@@ -15,6 +15,7 @@
 //= require social-share-button
 //= require testimonial_panel
 //= require base_map
+//= require map_interactor
   
 let apiKey = 'pk.eyJ1Ijoidmlkcmlsb2NvIiwiYSI6ImNrMzFzYjFwbDBiZWUzZXBnaGlkMGloZHIifQ.pjMvF92qc7BlLy-6tbu62g';
 let map = new BaseMap(apiKey, 'map', {
@@ -23,12 +24,14 @@ let map = new BaseMap(apiKey, 'map', {
   initialCoordinates: [-77.38, 39]
 });
 
-let testimonial = new TestimonialPanel('#testimonials-carousel');
+let panel = new TestimonialPanel('#testimonials-carousel', {
+  leftButtonID: "#carousel-prev-button",
+  rightButtonID: "#carousel-next-button"
+});
+
+let mapInteractor = new MapInteractor(map, panel);
 
 if($("#testimonial-list").length > 0) {
-  map.start();
-  map.loadMarkersAt(".coordinates", (index) => { 
-    testimonial.focusOnMarkerWithIndex(index);
-  });
+  mapInteractor.startWithMarkersAt(".coordinates");
 }
 

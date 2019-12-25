@@ -1,8 +1,10 @@
 class BaseMap {
-  constructor(apiKey, containerID, opts) {
+    
+  constructor(apiKey, containerID, opts={}) {
     this.apiKey = apiKey;
     this.containerID = containerID;
     this.opts = opts;
+    this.markers = [];
   }
   
   start() {
@@ -14,6 +16,14 @@ class BaseMap {
       zoom: this.opts.initialZoom // starting zoom
     });
   }
+  
+  centerMapAt(coordinate) {
+    this.map.flyTo({ center: coordinate });
+  }
+  
+  getMarkerWithIndex(index) {
+    return this.markers[index];
+  }
 
   loadMarkersAt(containerID, actionOnClick) {    
     let features = this.featuresForMarkersAt(containerID);
@@ -22,6 +32,7 @@ class BaseMap {
     });
     
     var map = this.map;
+    var markers = [];
     // add markers to map
     features.forEach(function(marker) {
 
@@ -30,7 +41,7 @@ class BaseMap {
       el.className = 'marker';
       el.addEventListener('click', () => 
          { 
-           actionOnClick(marker.index);
+           actionOnClick(marker);
          }
       ); 
 
@@ -38,8 +49,11 @@ class BaseMap {
       new mapboxgl.Marker(el)
         .setLngLat(marker.coordinates)
         .addTo(map);
+        
+      markers.push(marker);
     });
     
+    this.markers = markers;
     this.map.fitBounds(bounds, {padding: 40 });
   }
   

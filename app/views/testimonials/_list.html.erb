@@ -1,5 +1,5 @@
 <% unless @testimonials.empty? %>
-  <div id="testimonials-carousel" class="carousel slide pr-5 pl-5" data-ride="carousel" style="pointer-events: auto;">
+  <div id="testimonials-carousel" class="carousel slide pr-5 pl-5" data-interval="false" data-ride="carousel" style="pointer-events: auto;">
     <div class="carousel-inner">
       <% @testimonials.each_with_index do |testimonial, index| %>
         <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
@@ -7,11 +7,11 @@
         </div>
       <% end %>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a id="carousel-prev-button" class="carousel-control-prev" href="javascript:void(0)" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a id="carousel-next-button" class="carousel-control-next" href="javascript:void(0)" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
