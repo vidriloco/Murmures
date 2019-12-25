@@ -8,6 +8,6 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     include ApplicationHelper
     
-    before_action :authenticate_user
+    before_action :authenticate_user!
   end
 end
