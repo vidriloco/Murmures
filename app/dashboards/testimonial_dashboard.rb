@@ -12,10 +12,10 @@ class TestimonialDashboard < Administrate::BaseDashboard
     categories: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    age: Field::String,
     gender: Field::Select.with_options(collection: Testimonials::Gender.all),
     sexual_orientation: Field::Select.with_options(collection: Testimonials::SexualOrientation.all),
     religion: Field::Select.with_options(collection: Testimonials::Religion.all),
+    age: Field::Number,
     audio_url: Field::String,
     location: Field::String.with_options(searchable: false),
     published_date: Field::DateTime,
@@ -37,6 +37,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
     :categories,
     :id,
     :name,
+    :age,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

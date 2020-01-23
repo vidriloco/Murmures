@@ -3,7 +3,7 @@ class CreateTestimonials < ActiveRecord::Migration[5.0]
     create_table :testimonials do |t|
       t.string        :title
       t.string        :bio
-      t.string        :age
+      t.integer       :age
       t.string        :gender
       t.string        :sexual_orientation
       t.string        :religion

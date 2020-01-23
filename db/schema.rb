@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20161120133111) do
   create_table "testimonials", force: :cascade do |t|
     t.string    "title"
     t.string    "bio"
-    t.string    "age"
+    t.integer   "age"
     t.string    "gender"
     t.string    "sexual_orientation"
     t.string    "religion"
