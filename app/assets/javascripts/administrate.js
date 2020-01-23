@@ -1,7 +1,9 @@
+let modelName = "testimonial";
+
 $(document).ready(function() {
 
-	var latRead = $('#picture_location_lat').attr('value');
-	var lngRead = $('#picture_location_lng').attr('value');
+	var latRead = $('#' + modelName + '_location_lat').attr('value');
+	var lngRead = $('#' + modelName + '_location_lng').attr('value');
 	
 	var lat = 19.43;
 	var lng = -99.13;
@@ -30,8 +32,8 @@ $(document).ready(function() {
 		var lat = event.latLng.lat();
 		var lng = event.latLng.lng();
 		
-		$('#picture_location_lng').attr('value', lng);
-		$('#picture_location_lat').attr('value', lat);
+		$('#' + modelName + '_location_lng').attr('value', lng);
+		$('#' + modelName + '_location_lat').attr('value', lat);
 		
 	}	
 	
@@ -57,8 +59,8 @@ $(document).ready(function() {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 		
-		$('#picture_location_lng').attr('value', place.geometry.location.lng);
-		$('#picture_location_lat').attr('value', place.geometry.location.lat);
+		$('#' + modelName + '_location_lng').attr('value', place.geometry.location.lng);
+		$('#' + modelName + '_location_lat').attr('value', place.geometry.location.lat);
   });
 });
 

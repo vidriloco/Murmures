@@ -1,11 +1,9 @@
 class Testimonial < ApplicationRecord
-  has_many :tags, as: :taggable
-  has_many :categories, through: :tags
   
   attr_accessor :location_lat
   attr_accessor :location_lng
   
-  #before_validation :assign_location
+  before_validation :assign_location
   #before_validation :assign_list_of_tags
     
   #validates :location_lat, :location_lng, :title, presence: true
@@ -15,7 +13,7 @@ class Testimonial < ApplicationRecord
   end
   
   def assign_location
-    self.location = [@location_lat, @location_lng] if !(@location_lat.blank? && @location_lng.blank?)
+    self.location = "POINT(#{@location_lng} #{@location_lat})" if !(@location_lat.blank? && @location_lng.blank?)
   end
   
   def assign_list_of_tags

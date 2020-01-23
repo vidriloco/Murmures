@@ -19,3 +19,10 @@ Testimonial.create(
   bio: "Religious figures, the government, your parents—they all want to have a say in what you do between your legs.",
   image_url: "https://images.unsplash.com/photo-1569245424586-0a37122af165?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
   audio_url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true")
+  
+User.create(
+  name: "Thomas",
+  email: "thomas@murmures.com",
+  password: "testing",
+  password_confirmation: "testing"
+)

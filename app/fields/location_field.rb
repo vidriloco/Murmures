@@ -6,11 +6,11 @@ class LocationField < Administrate::Field::Base
   end
   
   def latitude
-    return data[0] unless data.nil?
+    return data.lat unless data.nil?
   end
   
   def longitude
-    return data[1] unless data.nil?
+    return data.lon unless data.nil?
   end
 
 end

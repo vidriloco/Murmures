@@ -1,19 +1,8 @@
 module Admin
   class TestimonialsController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # simply overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Testimonial.all.paginate(10, params[:page])
-    # end
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Testimonial.find_by!(slug: param)
-    # end
-
-    # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-    # for more information
+    def permitted_attributes
+      [:title, :age, :gender, :sexual_orientation, :religion, :audio_url, :location_lat, :location_lng, :published]
+    end
   end
 end

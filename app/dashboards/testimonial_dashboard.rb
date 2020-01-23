@@ -8,16 +8,15 @@ class TestimonialDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    tags: Field::HasMany,
-    categories: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
-    gender: Field::Select.with_options(collection: Testimonials::Gender.all),
-    sexual_orientation: Field::Select.with_options(collection: Testimonials::SexualOrientation.all),
-    religion: Field::Select.with_options(collection: Testimonials::Religion.all),
+    title: Field::String,
     age: Field::Number,
+    gender: Field::Select.with_options(collection: Testimonial::Gender.all),
+    sexual_orientation: Field::Select.with_options(collection: Testimonial::SexualOrientation.all),
+    religion: Field::Select.with_options(collection: Testimonial::Religion.all),
     audio_url: Field::String,
-    location: Field::String.with_options(searchable: false),
+    image_url: Field::String,
+    location: LocationField,
     published_date: Field::DateTime,
     transcript: Field::Text,
     user_id: Field::Number,
@@ -33,20 +32,17 @@ class TestimonialDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :tags,
-    :categories,
     :id,
-    :name,
+    :title,
     :age,
+    :gender
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :tags,
-    :categories,
     :id,
-    :name,
+    :title,
     :age,
     :gender,
     :sexual_orientation,
@@ -66,9 +62,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :tags,
-    :categories,
-    :name,
+    :title,
     :age,
     :gender,
     :sexual_orientation,
