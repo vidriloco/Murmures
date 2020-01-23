@@ -19,6 +19,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
     location: LocationField,
     published_date: Field::DateTime,
     transcript: Field::Text,
+    bio: Field::Text,
     user_id: Field::Number,
     published: Field::Boolean,
     list_of_tags: Field::Text,
@@ -44,6 +45,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
     :id,
     :title,
     :age,
+    :bio,
     :gender,
     :sexual_orientation,
     :religion,
@@ -64,6 +66,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :title,
     :age,
+    :bio,
     :gender,
     :sexual_orientation,
     :religion,
