@@ -68,6 +68,7 @@ class TestimonialDashboard < Administrate::BaseDashboard
     :sexual_orientation,
     :religion,
     :audio_url,
+    :image_url,
     :location,
     :published_date,
     :transcript,
