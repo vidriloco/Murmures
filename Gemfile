@@ -49,7 +49,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bourbon'
-gem 'administrate', '~> 0.3.0'
+gem 'administrate', '~> 0.13.0'
 
 gem 'pg', '~> 0.18'
 gem 'activerecord-postgis-adapter'
