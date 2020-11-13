@@ -19,7 +19,7 @@
   
 let apiKey = 'pk.eyJ1Ijoidmlkcmlsb2NvIiwiYSI6ImNrMzFzYjFwbDBiZWUzZXBnaGlkMGloZHIifQ.pjMvF92qc7BlLy-6tbu62g';
 let map = new BaseMap(apiKey, 'map', {
-  style: 'mapbox://styles/mapbox/dark-v10',
+  style: 'mapbox://styles/vidriloco/ckhe29jv509vd19kv3d30iuq2',
   initialZoom: 3,
   initialCoordinates: [-77.38, 39]
 });
