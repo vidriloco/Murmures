@@ -54,7 +54,7 @@ class BaseMap {
     });
     
     this.markers = markers;
-    this.map.fitBounds(bounds, {padding: 40 });
+    this.map.fitBounds(bounds, { padding: 40 });
   }
   
   featuresForMarkersAt(containerID) {
@@ -65,7 +65,7 @@ class BaseMap {
           
       return {
         index: index,
-        coordinates: [lat, lon]
+        coordinates: [lon, lat]
       }
     });
   }
