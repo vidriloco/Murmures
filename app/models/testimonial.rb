@@ -6,8 +6,9 @@ class Testimonial < ApplicationRecord
   before_validation :assign_location
   #before_validation :assign_list_of_tags
     
-  validates :location_lat, :location_lng, :title, :age, :image_url, :audio_url, :bio, presence: true
-
+  validates :location, :title, :age, :image_url, :audio_url, :bio, presence: true
+  validates :age, numericality: { only_integer: true }
+  
   def self.published
     where(published: true)
   end
